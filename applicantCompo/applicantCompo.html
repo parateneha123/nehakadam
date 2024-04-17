@@ -1,0 +1,18 @@
+<template>
+    <lightning-card variant="Narrow" >
+        <div slot="title" style="font-size: 18p+9+x; font-weight: 300; font-family: Segoe UI Semibold ;">
+            <lightning-icon  icon-name="standard:address" size="xx-large" class="slds-m-right_x-small"></lightning-icon>
+            Applicant's Address Popup
+        </div>
+        
+        <div class="slds-var-p-around_medium lgc-bg" >
+            <lightning-input data-formfield="applicantID" type="text" placeholder="Enter Applicant ID" onkeypress={onEnterHandler}></lightning-input> <br/>
+            <lightning-button variant="brand" label="Show Address" onclick={searchApplicantAddressHandler}></lightning-button>
+        </div>
+        
+        <template if:true={showAddressPopUpFlag}>
+                <!--CALLING ADDRESS POP-UP COMPONENT-->
+                <c-address-pop-up onclosebuttonevent={closePopUpHandler} address-list={applicantAddrList}></c-address-pop-up>
+        </template>
+    </lightning-card>
+</template>
